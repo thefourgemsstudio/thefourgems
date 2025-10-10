@@ -1,11 +1,11 @@
  :root {
-      --bg: #03070a;           /* tło strony */
-      --card: #0a0f14;         /* ciemne tło kart */
-      --accent: #d06507;       /* pomarańczowa lawa */
-      --muted: #7f8c8d;        /* neutralny tekst pomocniczy */
+      --bg: #03070a;           
+      --card: #0a0f14;         
+      --accent: #d06507;       
+      --muted: #7f8c8d;        
       --glass: rgba(255,255,255,0.03);
-      --green: #147606;        /* emerald z logo */
-      --darkrock: #211915;     /* czarna wulkaniczna skała */
+      --green: #147606;       
+      --darkrock: #211915;     
     }
 
     * { box-sizing: border-box; }
@@ -17,17 +17,17 @@
     .logo {
       width: 150px;
       height: 150px;
-      min-width: 100px;       /* logo nie zrobi się mniejsze niż 100px */
+      min-width: 100px;       
       border-radius: 16px;
       display: flex;
-      align-items: flex-start; /* obrazek wyrównany do góry */
+      align-items: flex-start; 
       justify-content: center;
       box-shadow: 0 6px 24px rgba(0,0,0,0.6);
     }
 
     .logo img {
       width: 100%;
-      height: auto;            /* zachowuje proporcje */
+      height: auto;            
       border-radius: 16px;
       object-fit: contain;
     }
@@ -35,9 +35,38 @@
     h1 { margin: 0; font-size: 28px; color: #e6eef6; }
     p.lead { color: var(--muted); margin: 8px 0 22px; }
 
-    .card { background: var(--card); padding: 22px; border-radius: 14px; box-shadow: 0 8px 40px rgba(2,6,23,0.6); border: 1px solid rgba(255,255,255,0.03); }
-    .grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
-    .right { position: sticky; top: 28px; height: max-content; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr minmax(280px, 320px);
+      gap: 20px;
+      overflow-wrap: anywhere;
+    }
+
+    .right {
+      position: sticky;
+      top: 28px;
+      height: max-content;
+      word-break: break-word; 
+    }
+
+    @media (max-width: 880px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .right {
+        position: static;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
     h2 { margin-top: 0; color: #e6eef6; }
     ul { margin: 8px 0 18px 20px; }
     code { background: var(--glass); padding: 4px 8px; border-radius: 6px; font-family: SFMono-Regular, Menlo, monospace; color: #cfeffd; }
